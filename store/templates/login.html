@@ -1,0 +1,61 @@
+{% extends 'base.html' %} 
+
+{% block content %} 
+
+<style>
+
+    input { padding:10px;}
+    .form-group { padding:10px; }
+</style>
+<div class="container mt-4">
+    
+    <div class="p-4 m-4">
+
+        
+        <div class="col-lg-5 rounded mx-auto border ">
+            <div class="text-center col mx-auto ">
+            
+                <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Shopping_cart_with_food_clip_art_2.svg/307px-Shopping_cart_with_food_clip_art_2.svg.png" alt=""
+                class="" style="height: 120px;">
+            <!-- <hr> -->
+            <div class="display-8">Login Here</div>
+            <hr>
+            </div>
+            <h3 hidden class="alert alert-light border mt-4 mb-4 rounded">Login Here</h3>
+            <form action="" method="POST"  >                
+                {% csrf_token %}
+
+                {% if error%}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+               
+                <!-- email -->
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input required type="email" name="email" id="" 
+                    class=" form-control " placeholder="example@gmail.com" autocomplete="on" >
+                </div>
+
+
+                <!-- password -->
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" name="password" id="" class="form-control " placeholder="********" autocomplete="on" >
+                </div>
+
+                <hr>
+                <div class="form-group">
+                    <input class="btn btn-sm btn-info col-lg-4" type="submit" value="Login">
+                </div>
+
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
